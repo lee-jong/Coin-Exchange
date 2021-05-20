@@ -1,13 +1,18 @@
 import React from 'react'
+import { Container } from '../components/Main/styled'
 
-class main extends React.Component {
+import List from '../components/List'
+import SelectBar from '../components/SelectBar'
+
+class Main extends React.Component {
   render(){
     return (
-      <div>
-          hi
-      </div>
+      <Container>
+          <SelectBar />
+          <List />
+      </Container>
     )
   }
 }
 
-export default main
+export default Main

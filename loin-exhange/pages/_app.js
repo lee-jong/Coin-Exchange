@@ -13,13 +13,14 @@ class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx);
     }
 
+
     return { pageProps };
   }
 
   render() {
     const { Component, pageProps } = this.props;
     return (
-        <BaseLayout>
+        <BaseLayout >
           <Component {...pageProps} />
         </BaseLayout>
     );
