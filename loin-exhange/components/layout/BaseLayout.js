@@ -6,12 +6,12 @@ import Menu from '../shared/Menu'
 
 class BaseLayout extends React.Component {
   render(){
-    let { children } = this.props
+    let { children, nowPage } = this.props
     return (
       <>
         <Meta />
-        <Menu />
-        {children}
+        {nowPage !== '/detail' && <Menu nowPage={ nowPage }/> }
+        { children }
       </>
     )
   }

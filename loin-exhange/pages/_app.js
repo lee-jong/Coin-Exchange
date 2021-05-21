@@ -13,14 +13,15 @@ class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx);
     }
 
+    let nowPage = ctx.asPath
 
-    return { pageProps };
+    return { pageProps, nowPage };
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, nowPage } = this.props;
     return (
-        <BaseLayout >
+        <BaseLayout nowPage={nowPage}>
           <Component {...pageProps} />
         </BaseLayout>
     );

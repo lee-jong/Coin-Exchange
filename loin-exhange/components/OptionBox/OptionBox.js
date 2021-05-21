@@ -6,13 +6,15 @@ class OptionBox extends React.Component {
         return (
             <>
                 <Select>
-                    <option>hi</option>
+                    <option>전체보기</option>
                 </Select>
                 <Select>
-                    <option>hi</option>
+                    <option>KRW 보기</option>
                 </Select>
                 <Select>
-                    <option>hi</option>
+                    <option>10개 보기</option>
+                    <option>30개 보기</option>
+                    <option>50개 보기</option>
                 </Select>
             </>
         )

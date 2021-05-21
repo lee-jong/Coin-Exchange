@@ -3,7 +3,7 @@ import React from 'react'
 import List from '../components/List'
 import SelectBar from '../components/SelectBar'
 
-class Main extends React.Component {
+class Bookmark extends React.Component {
   render(){
     return (
       <div>
@@ -14,4 +14,4 @@ class Main extends React.Component {
   }
 }
 
-export default Main
+export default Bookmark
