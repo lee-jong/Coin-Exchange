@@ -81,7 +81,6 @@ class Main extends React.Component {
 
   render(){
     const { list, pageInfo } = this.state
-    console.log("list", list)
     return (
       <div>
           <SelectBar handleOption={ this.handleOption } pageInfo={ pageInfo }/>

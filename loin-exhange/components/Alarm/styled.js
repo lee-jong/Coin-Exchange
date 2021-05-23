@@ -12,5 +12,4 @@ export const Div = styled.div`
     padding-top: 9px;
     text-align : center;
     margin-left: 2.5%;
-    margin-top: -1%;
 `
