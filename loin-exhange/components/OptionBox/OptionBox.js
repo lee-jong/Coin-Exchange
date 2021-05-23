@@ -3,18 +3,20 @@ import { Select } from './styled'
 
 class OptionBox extends React.Component {
     render(){
+        const { handleOption, pageInfo } = this.props
         return (
             <>
-                <Select>
+                <Select onChange={(e) => handleOption(e)}>
                     <option>전체보기</option>
                 </Select>
-                <Select>
-                    <option>KRW 보기</option>
+                <Select id="vs_currency" onChange={(e) => handleOption(e)} value={ pageInfo.vs_currency }>
+                    <option value='krw'>KRW 보기</option>
+                    <option value='usd'>USD 보기</option>
                 </Select>
-                <Select>
-                    <option>10개 보기</option>
-                    <option>30개 보기</option>
-                    <option>50개 보기</option>
+                <Select id="per_page" onChange={(e) => handleOption(e)} value={ pageInfo.per_page }>
+                    <option value="10">10개 보기</option>
+                    <option value="30">30개 보기</option>
+                    <option value="50">50개 보기</option>
                 </Select>
             </>
         )

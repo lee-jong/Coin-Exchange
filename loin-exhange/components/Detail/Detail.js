@@ -1,6 +1,6 @@
 import React from 'react'
-import { Header, Title, Info, Table, PiceInfo_h, PiceInfo_f, Tbody, Tr, Th, Td, 
-    Pice,Per, Total, Calculation, Footer, Content } from './styled'
+import { Header, Title, Info, Table, priceInfo_h, priceInfo_f, Tbody, Tr, Th, Td, 
+    price,Per, Total, Calculation, Footer, Content } from './styled'
 
 class Detail extends React.Component {
     render(){
@@ -19,8 +19,8 @@ class Detail extends React.Component {
                             <Tr><Th>웹사이트</Th><Td>ㅋㄷㅋㄷ</Td></Tr>
                         </Tbody>
                     </Table>
-                    <Pice>
-                        <PiceInfo_h>
+                    <price>
+                        <priceInfo_h>
                             <Per title={'true'}>
                                 <div>21,177,032</div>
                                 <div>0.8%</div>
@@ -29,8 +29,8 @@ class Detail extends React.Component {
                                 <div>1.00000000 BTC</div>
                                 <div>0.1%</div>
                             </Per>
-                        </PiceInfo_h>
-                        <PiceInfo_f>
+                        </priceInfo_h>
+                        <priceInfo_f>
                             <Total>
                                 <div>시가총액</div>
                                 <div>24시간 거래대금</div>
@@ -39,8 +39,8 @@ class Detail extends React.Component {
                                 <div>1231231231</div>
                                 <div>1231231231</div>
                             </Total>
-                        </PiceInfo_f>
-                    </Pice>
+                        </priceInfo_f>
+                    </price>
                 </Info>
                 <Calculation>
                     <div>가격 계산</div>

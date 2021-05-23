@@ -2,9 +2,11 @@ import React from 'react'
 import { Table, Thead, Tbody, Col, Tr, Th} from './styled'
 import { BookMark } from '../Icon'
 import Alarm from '../Alarm'
+import { arrangePercent, arrangePrice } from '../../util'
 
 class List extends React.Component {
     render(){
+        const { list, handleMore } = this.props
         return (
             <Table>
                 <colgroup>
@@ -22,7 +24,7 @@ class List extends React.Component {
                         <Th></Th>
                         <Th>자산</Th>
                         <Th></Th>
-                        <Th>Pice</Th>
+                        <Th>price</Th>
                         <Th>1H</Th>
                         <Th>24H</Th>
                         <Th>7D</Th>
@@ -30,29 +32,22 @@ class List extends React.Component {
                     </Tr>
                 </Thead>
                 <Tbody>
-                    <Tr>
+                    {list.map((item, idx) => (
+                    <Tr key={idx}>
                         <Th><BookMark checked={true}/></Th>
-                        <Th>자산</Th>
-                        <Th>XXX</Th>
-                        <Th>Pice</Th>
-                        <Th>1H</Th>
-                        <Th>24H</Th>
-                        <Th>7D</Th>
-                        <Th>24H Volume</Th>
+                        <Th>{item.name}</Th>
+                        <Th>{item.symbol.toUpperCase()}</Th>
+                        <Th>{arrangePrice(item.current_price)}</Th>
+                        <Th val={item.price_change_percentage_1h_in_currency}>{arrangePercent(item.price_change_percentage_1h_in_currency)}</Th>
+                        <Th val={item.price_change_percentage_24h_in_currency}>{arrangePercent(item.price_change_percentage_24h_in_currency)}</Th>
+                        <Th val={item.price_change_percentage_7d_in_currency}>{arrangePercent(item.price_change_percentage_7d_in_currency)}</Th>
+                        {/* TODO 아래 */}
+                        <Th>{arrangePrice(item.market_cap)}</Th>
                     </Tr>
+                    ))}
                     {/* <Alarm/> */}
-                    <Tr>
-                        <Th><BookMark checked={false}/></Th>
-                        <Th>자산</Th>
-                        <Th>XXX</Th>
-                        <Th>Pice</Th>
-                        <Th>1H</Th>
-                        <Th>24H</Th>
-                        <Th>7D</Th>
-                        <Th>24H Volume</Th>
-                    </Tr>
                     <Tr footer={'true'}>
-                        <Th colSpan='8'> + 더보기</Th>
+                        <Th colSpan='8' onClick={() => handleMore()}> + 더보기</Th>
                     </Tr>
                 </Tbody>
             </Table>

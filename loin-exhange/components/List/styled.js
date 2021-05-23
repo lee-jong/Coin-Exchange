@@ -17,9 +17,10 @@ export const Col = styled.col`
 export const Tr = styled.tr`
     ${props => props.title ? `height : 30px;` : `height : 50px;`}
     ${props => props.footer && `border: 0.1px solid #e8e8e8`}
-`
-
-export const Th = styled.th`
+    `
+    
+    export const Th = styled.th`
     vertical-align : middle;
     text-align: center;
+    ${props => props.val != undefined ? (Math.sign(props.val) > 0 ? 'color : red' : 'color : blue') : ''}
 `

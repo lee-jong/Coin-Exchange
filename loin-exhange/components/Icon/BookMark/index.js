@@ -7,7 +7,7 @@ class BookMark extends React.Component {
         const {checked} = this.props
         return(
             <>
-                {checked ? <Icon.StarFill color={'gray'}/> : <Icon.StarFill color={'yellow'}/>}
+                {checked ? <Icon.StarFill color={'yellow'}/> : <Icon.StarFill color={'gray'}/>}
             </>
         )
     }
