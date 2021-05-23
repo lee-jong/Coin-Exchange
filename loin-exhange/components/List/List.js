@@ -40,7 +40,7 @@ class List extends React.Component {
                         <Th>7D</Th>
                         <Th>24H Volume</Th>
                     </Tr>
-                    <Alarm/>
+                    {/* <Alarm/> */}
                     <Tr>
                         <Th><BookMark checked={false}/></Th>
                         <Th>자산</Th>
