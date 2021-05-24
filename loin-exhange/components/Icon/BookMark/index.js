@@ -24,7 +24,7 @@ class BookMark extends React.Component {
     bookMarkChk = () => {
         const { checked } = this.state
         const { coin, type } = this.props
-        this.setState({checked : !checked})
+        this.setState({ checked : !checked })
         let bookMarkList = JSON.parse(localStorage.getItem('bookMark'))
         if(checked){
             let idx = bookMarkList.findIndex(item => item.id === coin.id)
@@ -38,7 +38,7 @@ class BookMark extends React.Component {
     }
     
     viewToast = () => {
-        const {reloadList} = this.props
+        const { reloadList } = this.props
         clearInterval(this.timer)
         this.timer = null
         this.setState({

@@ -5,7 +5,7 @@ class Alarm extends React.Component {
     render(){
         const { checked } = this.props
         return (
-            <Div>북마크가 {checked ? '등록' : '해제'} 되었습니다.</Div>
+            <Div>북마크가 { checked ? '등록' : '해제' } 되었습니다.</Div>
         )
     }
 }

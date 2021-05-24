@@ -11,4 +11,6 @@ export const GlobalStyle = createGlobalStyle`
     @media (min-width : 0px) and (max-width : 1350px) {
         #__next { position: relative; width : 1350px; padding: 2% 10% 2% 10%;}
     }
+
+    font: "Fira Sans", sans-serif;
 `

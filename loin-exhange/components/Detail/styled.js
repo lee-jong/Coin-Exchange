@@ -146,6 +146,8 @@ export const Footer = styled.div`
 
 export const Content = styled.div`
     margin-top:20px;
+    font-size : 13px;
+    line-height : 1.5em
 `
 
 export const Select = styled.select`

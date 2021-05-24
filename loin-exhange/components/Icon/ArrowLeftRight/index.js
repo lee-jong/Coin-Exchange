@@ -5,7 +5,7 @@ class ArrowLeftRight extends React.Component {
     render(){
         return (
             <>
-                <Icon.ArrowLeftRight size={60}/>
+                <Icon.ArrowLeftRight size={ 60 }/>
             </>
         )
     }
