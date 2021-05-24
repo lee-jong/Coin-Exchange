@@ -9,6 +9,7 @@ export const Header = styled.div`
 export const Title = styled.div`
     font-size : 25px;
     font-weight: 600;
+    & > img { padding : 0 5px 0 10px }
 `
 export const Info = styled.div`
     padding-top:40px;
@@ -145,4 +146,17 @@ export const Footer = styled.div`
 
 export const Content = styled.div`
     margin-top:20px;
+`
+
+export const Select = styled.select`
+    width: 85px;
+    border : none;
+    height : 25px;
+    margin-top:18px;
+    margin-left : 10px;
+    cursor: pointer;
+`
+export const Input = styled.input`
+    width: 200px;
+    height : 20px
 `

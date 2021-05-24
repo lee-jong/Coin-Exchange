@@ -40,7 +40,7 @@ class List extends React.Component {
                     {list.map((item, idx) => (
                         <Tr key={idx}>
                             <Th><BookMark coin={item} reloadList={reloadList} type={ bookmark ? item.type : pageInfo.vs_currency }/></Th>
-                            <Th onClick={() => $router(`detail?id=${item.name}`)}>{item.name}</Th>
+                            <Th onClick={() => $router(`detail?id=${item.id}`)}>{item.name}</Th>
                             <Th>{item.symbol.toUpperCase()}</Th>
                             <Th>{arrangePrice(item.current_price, bookmark ? item.type : pageInfo.vs_currency)}</Th>
                             <Th val={item.price_change_percentage_1h_in_currency}>{arrangePercent(item.price_change_percentage_1h_in_currency)}</Th>
