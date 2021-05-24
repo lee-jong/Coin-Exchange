@@ -2,8 +2,7 @@ import React from 'react';
 import App from 'next/app';
 import BaseLayout from '../components/layout/BaseLayout';
 
-import '../styles/common.css';
-import '../styles/reset.css';
+import { GlobalStyle } from './_globalStyle '
 
 class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -21,9 +20,12 @@ class MyApp extends App {
   render() {
     const { Component, pageProps, nowPage } = this.props;
     return (
+      <>
+        <GlobalStyle />
         <BaseLayout nowPage={nowPage}>
           <Component {...pageProps} />
         </BaseLayout>
+      </>
     );
   }
 }
