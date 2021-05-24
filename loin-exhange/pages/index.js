@@ -4,13 +4,14 @@ import List from '../components/List'
 import SelectBar from '../components/SelectBar'
 
 import { getCoinMarkets } from '../actions/coin'
+import { $router } from '../util/nextUtil'
 
 class Main extends React.Component {
   static async getInitialProps({}) {
     let list = []
     let data = { 
       vs_currency  : 'krw',
-      per_page : 10,
+      per_page : 50,
       price_change_percentage : '1h,24h,7d'
     }
     try{
@@ -25,9 +26,10 @@ class Main extends React.Component {
   state = {
     list : this.props.list,
     pageInfo : {
+      option : 'All',
       vs_currency : 'krw',
       page : 1,
-      per_page : 10,
+      per_page : 50,
       price_change_percentage : '1h,24h,7d'
     }
   }
@@ -51,6 +53,7 @@ class Main extends React.Component {
     let { pageInfo } = this.state
     let id = e.target.id
     let val = e.target.value
+    if(e.target.id === 'option' && e.target.value === 'BookMark') return $router('bookmark')
     this.setState({
       pageInfo : {
         ...pageInfo,
@@ -83,8 +86,8 @@ class Main extends React.Component {
     const { list, pageInfo } = this.state
     return (
       <div>
-          <SelectBar handleOption={ this.handleOption } pageInfo={ pageInfo }/>
-          <List list={ list } handleMore={ this.handleMore }/>
+          <SelectBar handleOption={ this.handleOption } pageInfo={ pageInfo } view={ true }/>
+          <List list={ list } handleMore={ this.handleMore } pageInfo={ pageInfo } bookmark={ false }/>
       </div>
     )
   }

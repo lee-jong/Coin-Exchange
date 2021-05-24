@@ -4,11 +4,11 @@ import OptionBox from '../OptionBox'
 
 class SelectBar extends React.Component {
     render(){
-        const { handleOption, pageInfo } = this.props
+        const { handleOption, pageInfo, view } = this.props
         return (
             <>
                 <Bar>
-                    <OptionBox handleOption={ handleOption } pageInfo={ pageInfo }/>
+                    {view && <OptionBox handleOption={ handleOption } pageInfo={ pageInfo }/>}
                 </Bar>
             </>
         )

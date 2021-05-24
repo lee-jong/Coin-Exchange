@@ -10,7 +10,7 @@ class BaseLayout extends React.Component {
     return (
       <>
         <Meta />
-        {nowPage !== '/detail' && <Menu nowPage={ nowPage }/> }
+        {nowPage.slice(0,7) !== '/detail' && <Menu nowPage={ nowPage }/> }
         { children }
       </>
     )

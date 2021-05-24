@@ -6,8 +6,9 @@ class OptionBox extends React.Component {
         const { handleOption, pageInfo } = this.props
         return (
             <>
-                <Select onChange={(e) => handleOption(e)}>
-                    <option>전체보기</option>
+                <Select id="option" onChange={(e) => handleOption(e)} value={ pageInfo.option }>
+                    <option value="All">전체보기</option>
+                    <option value="BookMark">북마크 보기</option>
                 </Select>
                 <Select id="vs_currency" onChange={(e) => handleOption(e)} value={ pageInfo.vs_currency }>
                     <option value='krw'>KRW 보기</option>

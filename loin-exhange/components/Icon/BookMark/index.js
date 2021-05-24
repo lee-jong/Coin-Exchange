@@ -11,6 +11,10 @@ class BookMark extends React.Component {
     }
 
     componentDidMount(){
+        this.checkBookMark()
+    }
+    
+    checkBookMark = () => {
         const { coin } = this.props
         let bookMarkList = JSON.parse(localStorage.getItem('bookMark'))
         if(bookMarkList != null && bookMarkList.findIndex(item => item.id === coin.id) >= 0) this.setState({checked : true})
@@ -19,22 +23,22 @@ class BookMark extends React.Component {
 
     bookMarkChk = () => {
         const { checked } = this.state
-        const { coin } = this.props
+        const { coin, type } = this.props
+        this.setState({checked : !checked})
         let bookMarkList = JSON.parse(localStorage.getItem('bookMark'))
         if(checked){
             let idx = bookMarkList.findIndex(item => item.id === coin.id)
             bookMarkList.splice(idx, 1)
             localStorage.setItem('bookMark', JSON.stringify(bookMarkList))
-            this.setState({checked : false})
         }else{
-            if(bookMarkList === null) localStorage.setItem('bookMark', JSON.stringify([coin]))
-            else localStorage.setItem('bookMark', JSON.stringify(bookMarkList.concat([coin])))
-            this.setState({checked : true})
+            if(bookMarkList === null) localStorage.setItem('bookMark', JSON.stringify([{...coin, type}]))
+            else localStorage.setItem('bookMark', JSON.stringify(bookMarkList.concat([{...coin, type}])))
         }
-        this.viewToast()
+        this.viewToast(checked)
     }
     
     viewToast = () => {
+        const {reloadList} = this.props
         clearInterval(this.timer)
         this.timer = null
         this.setState({
@@ -44,6 +48,8 @@ class BookMark extends React.Component {
                 this.setState({
                     view : false
                 })
+                if(reloadList !== undefined) reloadList()
+                this.checkBookMark()
                 clearInterval(this.timer)
                 this.timer = null
             }, 800)
@@ -52,20 +58,10 @@ class BookMark extends React.Component {
 
     render(){
         const { view, checked } = this.state
-        console.log("!", checked)
         return(
             <>
-                {checked ?
-                <>
-                    <Icon.StarFill onClick={() => this.bookMarkChk()} color={'yellow'}/> 
-                    {view && <Alarm checked={ checked }/>}
-                </>
-                    :
-                <>
-                    <Icon.StarFill onClick={() => this.bookMarkChk()} color={'gray'}/>
-                    {view && <Alarm checked={ checked }/>}
-                </>
-                }
+                <Icon.StarFill onClick={() => this.bookMarkChk()} color={ checked ? 'yellow' : 'gray'}/> 
+                {view && <Alarm checked={ checked }/>}
             </>
         )
     }

@@ -19,7 +19,7 @@ export const Table = styled.table`
     height : 100px;
     width: 50%;
 `
-export const price = styled.div`
+export const Price = styled.div`
     width: 50%;
 `
 
@@ -39,7 +39,7 @@ export const Td = styled.td`
     font-size : 15px;
     padding : 10px;
 `
-export const priceInfo_h = styled.div`
+export const PriceInfo_h = styled.div`
 `
 
 export const Per = styled.div`
@@ -73,7 +73,7 @@ export const Per = styled.div`
         padding-left :10px;
     }
 `
-export const priceInfo_f = styled.div`
+export const PriceInfo_f = styled.div`
     padding-top:28px;
 `
 

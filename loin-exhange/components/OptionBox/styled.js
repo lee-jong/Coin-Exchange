@@ -6,4 +6,5 @@ export const Select = styled.select`
     height : 25px;
     margin-top:18px;
     margin-left : 10px;
+    cursor: pointer;
 `
