@@ -9,7 +9,9 @@ yarn dev
 ```
 
 ## FrameWork Version Info
+
 React : 16.8.6
+
 Next : 9.0.2
 
 
