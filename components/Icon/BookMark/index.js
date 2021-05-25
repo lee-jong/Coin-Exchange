@@ -32,7 +32,7 @@ class BookMark extends React.Component {
             localStorage.setItem('bookMark', JSON.stringify(bookMarkList))
         }else{
             if(bookMarkList === null) localStorage.setItem('bookMark', JSON.stringify([{...coin, type}]))
-            else localStorage.setItem('bookMark', JSON.stringify(bookMarkList.concat([{...coin, type}])))
+            else localStorage.setItem('bookMark', JSON.stringify(bookMarkList.concat([{...coin, type}]).sort((a,b) => a['market_cap_rank'] - b['market_cap_rank'])))
         }
         this.viewToast(checked)
     }
