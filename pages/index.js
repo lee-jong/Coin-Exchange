@@ -2,6 +2,7 @@ import React from 'react'
 
 import List from '../components/List'
 import SelectBar from '../components/SelectBar'
+import Loading from '../components/Loading'
 
 import { getCoinMarkets } from '../actions/coin'
 import { $router } from '../util/nextUtil'
@@ -31,7 +32,13 @@ class Main extends React.Component {
       page : 1,
       per_page : 50,
       price_change_percentage : '1h,24h,7d'
-    }
+    },
+    loadingStatus : false
+  }
+
+  handleLoading = () => {
+    let { loadingStatus } = this.state
+    this.setState({loadingStatus : !loadingStatus})
   }
 
   getList = async () => {
@@ -40,10 +47,13 @@ class Main extends React.Component {
     let data = {
       ...pageInfo
     }
+    this.handleLoading()
     try{
       list = await getCoinMarkets(data)
+      this.handleLoading()
     }catch(err){
       console.log("err", err)
+      this.handleLoading()
     }
 
     return list
@@ -83,9 +93,10 @@ class Main extends React.Component {
 
 
   render(){
-    const { list, pageInfo } = this.state
+    const { list, pageInfo, loadingStatus } = this.state
     return (
       <div>
+          { loadingStatus && <Loading /> }
           <SelectBar handleOption={ this.handleOption } pageInfo={ pageInfo } view={ true }/>
           <List list={ list } handleMore={ this.handleMore } pageInfo={ pageInfo } bookmark={ false }/>
       </div>
